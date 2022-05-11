@@ -15,7 +15,7 @@ func _physics_process(delta):
 	move_and_slide(velocity)
 	
 	rotate_weapon(bingbing)
-	bingbing += 10
+	bingbing += 2
 	
 func get_input(delta):
 	# 움직임
@@ -38,14 +38,20 @@ func get_input(delta):
 		animState.travel("move")
 	if animState.get_current_node() == "move" and dir == Vector2.ZERO:
 		animState.travel("idle")
-	
+		
 func rotate_player(value):
-	$Tween.interpolate_property(self, "rotation_degrees", rotation_degrees, value, 0.1,$Tween.TRANS_LINEAR, $Tween.EASE_IN)
-	$Tween.start()
+	rotation_degrees = value
 	
 func rotate_weapon(value):
-	$Tween.interpolate_property($Weapon, "rotation_degrees", rotation_degrees, value, 0.1,$Tween.TRANS_LINEAR, $Tween.EASE_IN)
-	$Tween.start()
+	$Weapon.global_rotation_degrees = value
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			$Weapon.shoot(100, 2)
+	
 
 	
+func _on_WeaponCool_timeout():
+	$Weapon.shoot(100, 2)
+	$WeaponCool.wait_time = 0.5

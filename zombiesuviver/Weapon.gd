@@ -10,6 +10,10 @@ extends Node2D
 func _ready():
 	pass
 
-func shoot(direction, speed):
-	var bullet = load()
-	add_child()
+func shoot(speed, time):
+	var bullet = load("res://Bullet.tscn").instance()
+	bullet.position = $FirePos.global_position
+	bullet.direction = Vector2(0, -1).rotated(deg2rad(global_rotation_degrees)).normalized()
+	bullet.speed = speed
+	bullet.time = time
+	get_tree().get_root().add_child(bullet)
