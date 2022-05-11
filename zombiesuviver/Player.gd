@@ -7,10 +7,15 @@ var max_speed = 80
 var accel_power = 10
 var decel_power = 5
 
+var bingbing = 0
+
 
 func _physics_process(delta):
 	get_input(delta)
 	move_and_slide(velocity)
+	
+	rotate_weapon(bingbing)
+	bingbing += 10
 	
 func get_input(delta):
 	# 움직임
@@ -37,4 +42,10 @@ func get_input(delta):
 func rotate_player(value):
 	$Tween.interpolate_property(self, "rotation_degrees", rotation_degrees, value, 0.1,$Tween.TRANS_LINEAR, $Tween.EASE_IN)
 	$Tween.start()
+	
+func rotate_weapon(value):
+	$Tween.interpolate_property($Weapon, "rotation_degrees", rotation_degrees, value, 0.1,$Tween.TRANS_LINEAR, $Tween.EASE_IN)
+	$Tween.start()
+
+
 	
