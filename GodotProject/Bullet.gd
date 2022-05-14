@@ -9,3 +9,8 @@ func _ready():
 	
 	yield(get_tree().create_timer(time), "timeout")
 	queue_free()
+
+
+
+func _on_ContactCollision_body_entered(body):
+	queue_free()

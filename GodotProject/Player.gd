@@ -3,7 +3,7 @@ extends KinematicBody2D
 onready var animState = $PlayerAnimTree.get("parameters/playback")
 
 var velocity = Vector2.ZERO
-var max_speed = 80
+export var max_speed = 150
 var accel_power = 10
 var decel_power = 5
 
@@ -39,19 +39,28 @@ func get_input(delta):
 	if animState.get_current_node() == "move" and dir == Vector2.ZERO:
 		animState.travel("idle")
 		
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			$Weapon.shoot(100, 2)
+		
 func rotate_player(value):
 	rotation_degrees = value
 	
 func rotate_weapon(value):
 	$Weapon.global_rotation_degrees = value
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			$Weapon.shoot(100, 2)
-	
+func rotate_weapon_to(target):	
+	var direction = look_at(target.global_position)
+	$Weapon.global_rotation_degrees = direction
 
+func die():
+	pass
 	
 func _on_WeaponCool_timeout():
 	$Weapon.shoot(100, 2)
-	$WeaponCool.wait_time = 0.5
+	$WeaponCool.wait_time = 0.2
+
+
+func _on_HurtCollision_area_entered(area):
+	die()
