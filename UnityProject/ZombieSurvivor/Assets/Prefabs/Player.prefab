@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9046614139122575030}
   - component: {fileID: 9046614139122575029}
-  - component: {fileID: 9046614139122575025}
   - component: {fileID: 9046614139122575028}
   - component: {fileID: 9046614139122575031}
   - component: {fileID: 9046614139122575034}
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -89,20 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9046614139122575025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9046614139122575024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c34a96356d897548a1f241b364c7002, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 20
-  playerMaxSpeed: 2
 --- !u!50 &9046614139122575028
 Rigidbody2D:
   serializedVersion: 4
@@ -123,7 +108,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &9046614139122575031
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -200,17 +185,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerWeapon01
       objectReference: {fileID: 0}
+    - target: {fileID: 2624186069329672108, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624186069329672108, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
+      propertyPath: m_Size.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624186069329672108, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
+      propertyPath: m_Size.y
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624186069329672108, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a78e3dc064baa8448567a31900b342f, type: 3}
+    - target: {fileID: 2624186069329672108, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2624186069329672109, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2624186069329672109, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624186069329672109, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624186069329672109, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.0155
       objectReference: {fileID: 0}
     - target: {fileID: 2624186069329672109, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.002
       objectReference: {fileID: 0}
     - target: {fileID: 2624186069329672109, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -244,6 +257,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2624186070738806389, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624186070738806389, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2624186069329672111, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: beb342f99ee74974a8b40c6ae163767b, type: 3}
@@ -274,3 +295,4 @@ MonoBehaviour:
   damage: 0
   range: 0
   attackDelay: 0
+  target: {fileID: 0}

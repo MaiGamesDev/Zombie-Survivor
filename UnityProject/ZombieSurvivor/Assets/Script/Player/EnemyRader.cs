@@ -11,6 +11,7 @@ public class EnemyRader : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision);
         if (collision.CompareTag("Enemy"))
         {
             weapon01.target = collision.gameObject;
@@ -24,10 +25,6 @@ public class EnemyRader : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
-        {
-            weapon01.target = null;
-        }
 
     }
 }
